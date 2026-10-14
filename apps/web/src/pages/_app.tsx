@@ -72,7 +72,8 @@ const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
     <>
       <style jsx global>{`
         html {
-          font-family: ${jakarta.style.fontFamily};
+          font-family:
+            ${jakarta.style.fontFamily}, ${vazirmatn.style.fontFamily};
         }
         html[dir="rtl"],
         html[dir="rtl"] main {
