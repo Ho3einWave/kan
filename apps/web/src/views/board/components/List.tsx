@@ -109,7 +109,7 @@ export default function List({
       style={style}
       {...attributes}
       {...listeners}
-      className={`dark-text-dark-1000 mr-5 h-fit min-w-[18rem] max-w-[18rem] snap-start rounded-md border border-light-400 bg-light-300 py-2 pl-2 pr-1 text-neutral-900 dark:border-dark-300 dark:bg-dark-100 md:snap-align-none ${
+      className={`dark-text-dark-1000 me-5 h-fit min-w-[18rem] max-w-[18rem] snap-start rounded-md border border-light-400 bg-light-300 py-2 pe-1 ps-2 text-neutral-900 dark:border-dark-300 dark:bg-dark-100 md:snap-align-none ${
         canDrag ? (isDragging ? "cursor-grabbing" : "cursor-grab") : ""
       }`}
     >
@@ -121,6 +121,7 @@ export default function List({
           <input
             id="name"
             type="text"
+            dir="auto"
             aria-label={t`List name`}
             {...register("name")}
             onBlur={handleSubmit(onSubmit)}
@@ -175,7 +176,7 @@ export default function List({
             }
 
             return (
-              <div className="relative mr-1 inline-block">
+              <div className="relative me-1 inline-block">
                 <Dropdown items={dropdownItems} ariaLabel={t`List options`}>
                   <HiEllipsisHorizontal className="h-5 w-5 text-dark-900" />
                 </Dropdown>

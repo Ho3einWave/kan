@@ -98,7 +98,7 @@ export function CardModal({
             <div className="flex w-full items-start justify-between gap-4">
               <div className="flex-1">
                 {isLoading ? (
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 rtl:space-x-reverse">
                     <div className="h-[2.3rem] w-[300px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
                   </div>
                 ) : (
@@ -220,10 +220,10 @@ export function CardModal({
               </div>
             </div>
             {showTopFade && (
-              <div className="pointer-events-none absolute left-0 right-0 top-0 h-6 bg-gradient-to-b from-white/80 to-transparent dark:from-dark-100/80" />
+              <div className="pointer-events-none absolute end-0 start-0 top-0 h-6 bg-gradient-to-b from-white/80 to-transparent dark:from-dark-100/80" />
             )}
             {showFade && (
-              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white/80 to-transparent dark:from-dark-100/80" />
+              <div className="pointer-events-none absolute bottom-0 end-0 start-0 h-6 bg-gradient-to-t from-white/80 to-transparent dark:from-dark-100/80" />
             )}
           </div>
         </div>

@@ -17,7 +17,6 @@ import {
 } from "@dnd-kit/core";
 import {
   arrayMove,
-  horizontalListSortingStrategy,
   SortableContext,
   sortableKeyboardCoordinates,
 } from "@dnd-kit/sortable";
@@ -48,8 +47,10 @@ import PatternedBackground from "~/components/PatternedBackground";
 import { Tooltip } from "~/components/Tooltip";
 import { EditYouTubeModal } from "~/components/YouTubeEmbed/EditYouTubeModal";
 import { useDragToScroll } from "~/hooks/useDragToScroll";
+import { useLocalisation } from "~/hooks/useLocalisation";
 import { usePermissions } from "~/hooks/usePermissions";
 import { useScrollRestore } from "~/hooks/useScrollRestore";
+import { getLocaleDirection } from "~/locales";
 import { useKeyboardShortcut } from "~/providers/keyboard-shortcuts";
 import { useModal } from "~/providers/modal";
 import { usePopup } from "~/providers/popup";
@@ -79,6 +80,7 @@ import { UpdateBoardSlugForm } from "./components/UpdateBoardSlugForm";
 import ViewToggle from "./components/ViewToggle";
 import VisibilityButton from "./components/VisibilityButton";
 import { createBoardCollisionDetection } from "./dnd/collision";
+import { getHorizontalListSortingStrategy } from "./dnd/rtl-sorting";
 
 type PublicListId = string;
 
@@ -506,6 +508,12 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
     [],
   );
 
+  const { locale } = useLocalisation();
+  const listSortingStrategy = useMemo(
+    () => getHorizontalListSortingStrategy(getLocaleDirection(locale)),
+    [locale],
+  );
+
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
     useSensor(KeyboardSensor, {
@@ -862,7 +870,7 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
         <PatternedBackground />
         <div className="z-10 flex w-full flex-col justify-between p-6 md:flex-row md:p-8">
           {isLoading && !boardData && (
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 rtl:space-x-reverse">
               <div className="h-[2.3rem] w-[150px] animate-pulse rounded-[5px] bg-light-200 dark:bg-dark-100" />
             </div>
           )}
@@ -887,10 +895,10 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
               {t`${isTemplate ? "Template" : "Board"} not found`}
             </p>
           )}
-          <div className="order-1 mb-4 flex items-center justify-end space-x-1.5 sm:space-x-2 md:order-2 md:mb-0">
+          <div className="order-1 mb-4 flex items-center justify-end space-x-1.5 sm:space-x-2 md:order-2 md:mb-0 rtl:space-x-reverse">
             {isTemplate && (
               <div className="inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md border-[1px] border-light-300 bg-light-50 px-3 py-2 text-sm font-semibold text-light-950 shadow-sm dark:border-dark-300 dark:bg-dark-50 dark:text-dark-950">
-                <span className="mr-2">
+                <span className="me-2">
                   <HiOutlineRectangleStack />
                 </span>
                 {t`Template`}
@@ -975,10 +983,10 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
             className={`scrollbar-w-none scrollbar-track-rounded-[4px] scrollbar-thumb-rounded-[4px] scrollbar-h-[8px] z-0 flex-1 snap-x snap-mandatory scroll-pl-[10px] overflow-y-hidden overflow-x-scroll overscroll-contain scrollbar scrollbar-track-light-200 scrollbar-thumb-light-400 dark:scrollbar-track-dark-100 dark:scrollbar-thumb-dark-300 md:snap-none`}
           >
             {isLoading ? (
-              <div className="ml-[2rem] flex">
-                <div className="0 mr-5 h-[500px] w-[18rem] animate-pulse rounded-md bg-light-200 dark:bg-dark-100" />
-                <div className="0 mr-5 h-[275px] w-[18rem] animate-pulse rounded-md bg-light-200 dark:bg-dark-100" />
-                <div className="0 mr-5 h-[375px] w-[18rem] animate-pulse rounded-md bg-light-200 dark:bg-dark-100" />
+              <div className="ms-[2rem] flex">
+                <div className="0 me-5 h-[500px] w-[18rem] animate-pulse rounded-md bg-light-200 dark:bg-dark-100" />
+                <div className="0 me-5 h-[275px] w-[18rem] animate-pulse rounded-md bg-light-200 dark:bg-dark-100" />
+                <div className="0 me-5 h-[375px] w-[18rem] animate-pulse rounded-md bg-light-200 dark:bg-dark-100" />
               </div>
             ) : boardData ? (
               <>
@@ -1024,7 +1032,7 @@ export default function BoardPage({ isTemplate }: { isTemplate?: boolean }) {
                   >
                     <SortableContext
                       items={listIds}
-                      strategy={horizontalListSortingStrategy}
+                      strategy={listSortingStrategy}
                     >
                       <div className="flex w-max">
                         <div className="min-w-[10px] md:min-w-[2rem]" />

@@ -108,12 +108,12 @@ export default function NewApiKeyModal() {
             <div className="relative">
               <Input
                 value={createdApiKey.key}
-                className="pr-10 text-sm text-light-900 dark:text-dark-900"
+                className="pe-10 text-sm text-light-900 dark:text-dark-900"
                 readOnly
               />
               <button
                 type="button"
-                className="absolute inset-y-0 right-0 flex items-center pr-3 text-light-900 hover:text-light-950 dark:text-dark-900 dark:hover:text-dark-950"
+                className="absolute inset-y-0 end-0 flex items-center pe-3 text-light-900 hover:text-light-950 dark:text-dark-900 dark:hover:text-dark-950"
                 onClick={() => copy(createdApiKey.key)}
               >
                 {copied ? (

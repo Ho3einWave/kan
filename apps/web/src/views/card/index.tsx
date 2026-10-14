@@ -120,7 +120,7 @@ export function CardRightPanel({ isTemplate }: { isTemplate?: boolean }) {
     }) ?? [];
 
   return (
-    <div className="h-full w-[360px] border-l-[1px] border-light-300 bg-light-50 p-8 text-light-900 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900">
+    <div className="h-full w-[360px] border-s-[1px] border-light-300 bg-light-50 p-8 text-light-900 dark:border-dark-300 dark:bg-dark-50 dark:text-dark-900">
       <div className="mb-4 flex w-full flex-row pt-[18px]">
         <p className="my-2 mb-2 w-[100px] text-sm font-medium">{t`List`}</p>
         <ListSelector
@@ -329,7 +329,7 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
         {/* Full-width top strip with board link and dropdown */}
         <div className="flex w-full items-center justify-between border-b-[1px] border-light-300 bg-light-50 px-8 py-2 dark:border-dark-300 dark:bg-dark-50">
           {!card && isLoading && (
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 rtl:space-x-reverse">
               <div className="h-[1.5rem] w-[150px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
             </div>
           )}
@@ -395,7 +395,7 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
             <div className="p-6 md:p-8">
               <div className="mb-8 md:mt-4">
                 {!card && isLoading && (
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 rtl:space-x-reverse">
                     <div className="h-[2.3rem] w-[300px] animate-pulse rounded-[5px] bg-light-300 dark:bg-dark-300" />
                   </div>
                 )}
@@ -407,6 +407,7 @@ export default function CardPage({ isTemplate }: { isTemplate?: boolean }) {
                     <div>
                       <textarea
                         id="title"
+                        dir="auto"
                         {...register("title")}
                         onBlur={canEdit ? handleSubmit(onSubmit) : undefined}
                         rows={1}

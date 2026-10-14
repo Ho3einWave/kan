@@ -18,6 +18,7 @@ import {
   HiOutlineShieldCheck,
   HiOutlineUser,
 } from "react-icons/hi2";
+
 import { usePermissions } from "~/hooks/usePermissions";
 import { useWorkspace } from "~/providers/workspace";
 
@@ -116,11 +117,11 @@ export function SettingsLayout({ children, currentTab }: SettingsLayoutProps) {
                 }}
               >
                 <div className="relative mb-4">
-                  <ListboxButton className="w-full appearance-none rounded-lg border-0 bg-light-50 py-2 pl-3 pr-10 text-left text-sm text-light-1000 shadow-sm ring-1 ring-inset ring-light-300 focus:ring-2 focus:ring-inset focus:ring-light-400 dark:bg-dark-50 dark:text-dark-1000 dark:ring-dark-300 dark:focus:ring-dark-500">
+                  <ListboxButton className="w-full appearance-none rounded-lg border-0 bg-light-50 py-2 pe-10 ps-3 text-start text-sm text-light-1000 shadow-sm ring-1 ring-inset ring-light-300 focus:ring-2 focus:ring-inset focus:ring-light-400 dark:bg-dark-50 dark:text-dark-1000 dark:ring-dark-300 dark:focus:ring-dark-500">
                     {availableTabs[selectedTabIndex]?.label ?? "Select a tab"}
                     <HiChevronDown
                       aria-hidden="true"
-                      className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-light-900 dark:text-dark-900"
+                      className="pointer-events-none absolute end-3 top-1/2 h-4 w-4 -translate-y-1/2 text-light-900 dark:text-dark-900"
                     />
                   </ListboxButton>
                   <ListboxOptions className="absolute z-10 mt-1 w-full rounded-lg bg-light-50 py-1 text-sm shadow-lg ring-1 ring-inset ring-light-300 dark:bg-dark-50 dark:ring-dark-300">
@@ -128,7 +129,7 @@ export function SettingsLayout({ children, currentTab }: SettingsLayoutProps) {
                       <ListboxOption
                         key={tab.key}
                         value={availableTabs.indexOf(tab)}
-                        className="relative cursor-pointer select-none py-2 pl-3 pr-9 text-light-1000 dark:text-dark-1000"
+                        className="relative cursor-pointer select-none py-2 pe-9 ps-3 text-light-1000 dark:text-dark-1000"
                       >
                         {tab.label}
                       </ListboxOption>
@@ -141,7 +142,7 @@ export function SettingsLayout({ children, currentTab }: SettingsLayoutProps) {
               <div className="border-b border-gray-200 dark:border-white/10">
                 <nav
                   aria-label="Tabs"
-                  className="-mb-px flex space-x-8 focus:outline-none"
+                  className="-mb-px flex space-x-8 focus:outline-none rtl:space-x-reverse"
                 >
                   {availableTabs.map((tab) => (
                     <Link

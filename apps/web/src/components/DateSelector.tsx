@@ -87,7 +87,10 @@ const DateSelector = ({
           className="flex flex-none items-center justify-center p-1.5 text-light-700 hover:text-light-900 dark:text-dark-700 dark:hover:text-dark-1000"
         >
           <span className="sr-only">Previous month</span>
-          <HiChevronLeft aria-hidden="true" className="h-4 w-4" />
+          <HiChevronLeft
+            aria-hidden="true"
+            className="h-4 w-4 rtl:-scale-x-100"
+          />
         </button>
         <div className="flex-1 text-center text-sm font-semibold">
           {monthName} {year}
@@ -98,7 +101,10 @@ const DateSelector = ({
           className="flex flex-none items-center justify-center p-1.5 text-light-700 hover:text-light-900 dark:text-dark-700 dark:hover:text-dark-1000"
         >
           <span className="sr-only">Next month</span>
-          <HiChevronRight aria-hidden="true" className="h-4 w-4" />
+          <HiChevronRight
+            aria-hidden="true"
+            className="h-4 w-4 rtl:-scale-x-100"
+          />
         </button>
       </div>
       <div className="mt-6 grid grid-cols-7 text-center text-xs/6 text-light-950 dark:text-dark-950">

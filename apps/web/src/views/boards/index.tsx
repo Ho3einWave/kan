@@ -147,12 +147,12 @@ export default function BoardsPage({ isTemplate }: { isTemplate?: boolean }) {
                   onChange={(tab) => setActiveTab(tab)}
                 >
                   <div className="relative mb-4">
-                    <ListboxButton className="w-full appearance-none rounded-md border-0 bg-light-50 py-3 pl-3 pr-10 text-left text-sm font-semibold text-light-1000 shadow-sm ring-1 ring-inset ring-light-300 dark:bg-dark-50 dark:text-dark-1000 dark:ring-dark-300 dark:focus:ring-dark-500">
+                    <ListboxButton className="w-full appearance-none rounded-md border-0 bg-light-50 py-3 pe-10 ps-3 text-start text-sm font-semibold text-light-1000 shadow-sm ring-1 ring-inset ring-light-300 dark:bg-dark-50 dark:text-dark-1000 dark:ring-dark-300 dark:focus:ring-dark-500">
                       {boardsTabs.find((tab) => tab.key === activeTab)?.label ??
                         "Select a tab"}
                       <HiChevronDown
                         aria-hidden="true"
-                        className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-light-900 dark:text-dark-900"
+                        className="pointer-events-none absolute end-3 top-1/2 h-4 w-4 -translate-y-1/2 text-light-900 dark:text-dark-900"
                       />
                     </ListboxButton>
                     <ListboxOptions className="absolute z-10 mt-1 w-full rounded-md bg-light-50 py-1 text-sm shadow-lg ring-1 ring-inset ring-light-300 dark:bg-dark-50 dark:ring-dark-300">
@@ -161,7 +161,7 @@ export default function BoardsPage({ isTemplate }: { isTemplate?: boolean }) {
                           key={tab.key}
                           value={tab.key}
                           className={({ selected }) =>
-                            `relative cursor-pointer select-none py-2 pl-3 pr-9 ${
+                            `relative cursor-pointer select-none py-2 pe-9 ps-3 ${
                               selected
                                 ? "font-bold text-light-1000 dark:text-dark-1000"
                                 : "font-normal text-light-1000 dark:text-dark-1000"
@@ -179,7 +179,7 @@ export default function BoardsPage({ isTemplate }: { isTemplate?: boolean }) {
                 <div>
                   <nav
                     aria-label="Tabs"
-                    className="-mb-px flex space-x-8 focus:outline-none"
+                    className="-mb-px flex space-x-8 focus:outline-none rtl:space-x-reverse"
                   >
                     {boardsTabs.map((tab) => (
                       <button

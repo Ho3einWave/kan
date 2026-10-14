@@ -18,7 +18,7 @@ const Toggle = ({
 }) => (
   <div className="flex items-center">
     {showLabel && labelPosition === "before" && (
-      <span className="mr-2 text-xs text-light-900 dark:text-dark-900">
+      <span className="me-2 text-xs text-light-900 dark:text-dark-900">
         {label}
       </span>
     )}
@@ -36,12 +36,12 @@ const Toggle = ({
         aria-hidden="true"
         className={twMerge(
           "pointer-events-none inline-block h-3 w-3 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out",
-          isChecked && "translate-x-2",
+          isChecked && "translate-x-2 rtl:-translate-x-2",
         )}
       />
     </Switch>
     {showLabel && labelPosition === "after" && (
-      <span className="ml-2 text-xs text-light-900 dark:text-dark-900">
+      <span className="ms-2 text-xs text-light-900 dark:text-dark-900">
         {label}
       </span>
     )}

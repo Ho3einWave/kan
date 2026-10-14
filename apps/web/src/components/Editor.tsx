@@ -140,7 +140,7 @@ const CommandsList = forwardRef<
             <span className="text-dark-700 dark:text-dark-800">
               {item.icon}
             </span>
-            <span className="ml-3 text-[12px] font-medium text-dark-900 dark:text-dark-1000">
+            <span className="ms-3 text-[12px] font-medium text-dark-900 dark:text-dark-1000">
               {item.title}
             </span>
           </button>
@@ -263,7 +263,7 @@ const MentionList = forwardRef<
                 imageUrl={item.image ? getAvatarUrl(item.image) : undefined}
                 email={item.label}
               />
-              <span className="ml-3 text-[12px] font-medium text-dark-900 dark:text-dark-1000">
+              <span className="ms-3 text-[12px] font-medium text-dark-900 dark:text-dark-1000">
                 {item.label}
               </span>
             </button>
@@ -628,12 +628,21 @@ export default function Editor({
       <style jsx global>{`
         .tiptap p.is-empty::before {
           content: attr(data-placeholder);
-          float: left;
+          float: inline-start;
           height: 0;
           pointer-events: none;
         }
         .tiptap p {
           margin: 0 0 1rem 0 !important;
+        }
+        .tiptap p,
+        .tiptap h1,
+        .tiptap h2,
+        .tiptap h3,
+        .tiptap li,
+        .tiptap blockquote {
+          unicode-bidi: plaintext;
+          text-align: start;
         }
         .tiptap .mention {
           background-color: rgba(59, 130, 246, 0.1);

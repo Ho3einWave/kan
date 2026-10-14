@@ -135,7 +135,7 @@ export default function MembersPage() {
         <td
           className={twMerge(
             "w-full sm:w-[65%]",
-            isLastRow ? "rounded-bl-lg" : "",
+            isLastRow ? "rounded-es-lg" : "",
           )}
         >
           <div className="flex items-center p-2 sm:p-4">
@@ -150,12 +150,12 @@ export default function MembersPage() {
                 />
               )}
             </div>
-            <div className="ml-2 min-w-0 flex-1">
+            <div className="ms-2 min-w-0 flex-1">
               <div>
                 <div className="flex items-center">
                   <p
                     className={twMerge(
-                      "mr-2 truncate text-xs font-medium text-neutral-900 dark:text-dark-1000 sm:text-sm",
+                      "me-2 truncate text-xs font-medium text-neutral-900 dark:text-dark-1000 sm:text-sm",
                       showSkeleton &&
                         "md mb-2 h-3 w-[125px] animate-pulse rounded-sm bg-light-200 dark:bg-dark-200",
                       showPendingIcon &&
@@ -185,7 +185,7 @@ export default function MembersPage() {
         <td
           className={twMerge(
             "w-auto min-w-[120px] overflow-visible sm:w-[35%] sm:min-w-[150px]",
-            isLastRow && "rounded-br-lg",
+            isLastRow && "rounded-ee-lg",
           )}
         >
           <div className="flex w-full items-center justify-between px-2 sm:px-3">
@@ -293,7 +293,7 @@ export default function MembersPage() {
                     className="hidden items-center rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-center text-xs text-emerald-400 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 lg:flex"
                   >
                     <HiBolt />
-                    <span className="ml-1 font-medium">{t`Upgrade`}</span>
+                    <span className="ms-1 font-medium">{t`Upgrade`}</span>
                   </Link>
                 )}
                 <div
@@ -342,13 +342,13 @@ export default function MembersPage() {
                     <tr>
                       <th
                         scope="col"
-                        className="w-full rounded-tl-lg py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-light-900 dark:text-dark-900 sm:w-[65%] sm:pl-6"
+                        className="w-full rounded-ss-lg py-3.5 pe-3 ps-4 text-start text-sm font-semibold text-light-900 dark:text-dark-900 sm:w-[65%] sm:ps-6"
                       >
                         {t`User`}
                       </th>
                       <th
                         scope="col"
-                        className="w-auto whitespace-nowrap rounded-tr-lg px-3 py-3.5 text-left text-sm font-semibold text-light-900 dark:text-dark-900 sm:w-[35%]"
+                        className="w-auto whitespace-nowrap rounded-se-lg px-3 py-3.5 text-start text-sm font-semibold text-light-900 dark:text-dark-900 sm:w-[35%]"
                       >
                         {t`Role`}
                       </th>

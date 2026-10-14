@@ -91,14 +91,18 @@ export function AttachmentThumbnails({
     if (selectedIndex === null) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      const isRtl = document.documentElement.dir === "rtl";
+      const prevKey = isRtl ? "ArrowRight" : "ArrowLeft";
+      const nextKey = isRtl ? "ArrowLeft" : "ArrowRight";
+
       if (e.key === "Escape") {
         setSelectedIndex(null);
-      } else if (e.key === "ArrowLeft") {
+      } else if (e.key === prevKey) {
         setSelectedIndex((prev) => {
           if (prev === null) return null;
           return prev === 0 ? imageAttachments.length - 1 : prev - 1;
         });
-      } else if (e.key === "ArrowRight") {
+      } else if (e.key === nextKey) {
         setSelectedIndex((prev) => {
           if (prev === null) return null;
           return prev === imageAttachments.length - 1 ? 0 : prev + 1;
@@ -235,7 +239,7 @@ export function AttachmentThumbnails({
           <div className="fixed inset-0 z-10 overflow-y-auto">
             {selectedIndex !== null && selectedAttachment && (
               <div
-                className="fixed left-2 top-2 z-20 flex gap-1"
+                className="fixed start-2 top-2 z-20 flex gap-1"
                 onMouseDown={(e) => e.stopPropagation()}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -277,7 +281,7 @@ export function AttachmentThumbnails({
               </div>
             )}
 
-            <div className="fixed right-2 top-2 z-20 flex gap-1">
+            <div className="fixed end-2 top-2 z-20 flex gap-1">
               {imageAttachments.length > 1 && selectedIndex !== null && (
                 <button
                   onClick={(e) => {
@@ -287,7 +291,7 @@ export function AttachmentThumbnails({
                   className="rounded-full bg-light-50 p-1.5 text-light-1000 transition-colors hover:bg-light-100 focus:outline-none dark:bg-dark-50 dark:text-dark-1000 dark:hover:bg-dark-100"
                   aria-label="Previous image"
                 >
-                  <HiChevronLeft className="h-4 w-4" />
+                  <HiChevronLeft className="h-4 w-4 rtl:-scale-x-100" />
                 </button>
               )}
 
@@ -300,7 +304,7 @@ export function AttachmentThumbnails({
                   className="rounded-full bg-light-50 p-1.5 text-light-1000 transition-colors hover:bg-light-100 focus:outline-none dark:bg-dark-50 dark:text-dark-1000 dark:hover:bg-dark-100"
                   aria-label="Next image"
                 >
-                  <HiChevronRight className="h-4 w-4" />
+                  <HiChevronRight className="h-4 w-4 rtl:-scale-x-100" />
                 </button>
               )}
 

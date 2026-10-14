@@ -44,14 +44,14 @@ export default function ApiKeyList() {
 
     return (
       <tr className="rounded-b-lg">
-        <td className={twMerge("w-[30%]", isLastRow ? "rounded-bl-lg" : "")}>
+        <td className={twMerge("w-[30%]", isLastRow ? "rounded-es-lg" : "")}>
           <div className="flex items-center p-4">
-            <div className="ml-2 min-w-0 flex-1">
+            <div className="ms-2 min-w-0 flex-1">
               <div>
                 <div className="flex items-center">
                   <p
                     className={twMerge(
-                      "mr-2 text-sm font-medium text-light-900 dark:text-dark-900",
+                      "me-2 text-sm font-medium text-light-900 dark:text-dark-900",
                       showSkeleton &&
                         "md mb-2 h-3 w-[125px] animate-pulse rounded-sm bg-light-200 dark:bg-dark-200",
                     )}
@@ -101,7 +101,7 @@ export default function ApiKeyList() {
         <td
           className={twMerge(
             "w-[5%] min-w-[50px]",
-            isLastRow && "rounded-br-lg",
+            isLastRow && "rounded-ee-lg",
           )}
         >
           <div className="flex w-full items-center justify-center px-3">
@@ -142,31 +142,31 @@ export default function ApiKeyList() {
                 <tr>
                   <th
                     scope="col"
-                    className="w-[30%] rounded-tl-lg py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-light-900 dark:text-dark-900 sm:pl-6"
+                    className="w-[30%] rounded-ss-lg py-3.5 pe-3 ps-4 text-start text-sm font-semibold text-light-900 dark:text-dark-900 sm:ps-6"
                   >
                     Name
                   </th>
                   <th
                     scope="col"
-                    className="w-[20%] px-3 py-3.5 text-left text-sm font-semibold text-light-900 dark:text-dark-900"
+                    className="w-[20%] px-3 py-3.5 text-start text-sm font-semibold text-light-900 dark:text-dark-900"
                   >
                     Created
                   </th>
                   <th
                     scope="col"
-                    className="w-[20%] px-3 py-3.5 text-left text-sm font-semibold text-light-900 dark:text-dark-900"
+                    className="w-[20%] px-3 py-3.5 text-start text-sm font-semibold text-light-900 dark:text-dark-900"
                   >
                     Last Used
                   </th>
                   <th
                     scope="col"
-                    className="w-[25%] px-3 py-3.5 text-left text-sm font-semibold text-light-900 dark:text-dark-900"
+                    className="w-[25%] px-3 py-3.5 text-start text-sm font-semibold text-light-900 dark:text-dark-900"
                   >
                     Key
                   </th>
                   <th
                     scope="col"
-                    className="w-[5%] rounded-tr-lg px-3 py-3.5 text-center text-sm font-semibold text-light-900 dark:text-dark-900"
+                    className="w-[5%] rounded-se-lg px-3 py-3.5 text-center text-sm font-semibold text-light-900 dark:text-dark-900"
                   >
                     {/* Actions column */}
                   </th>

@@ -74,7 +74,9 @@ const Card = ({
           {ticketNumber}
         </span>
       )}
-      <span className="break-words">{title}</span>
+      <span dir="auto" className="break-words">
+        {title}
+      </span>
       {labels.length ||
       members.length ||
       checklists.length > 0 ||
@@ -83,7 +85,7 @@ const Card = ({
       hasDueDate ||
       hasAttachments ? (
         <div className="mt-2 flex flex-col justify-end">
-          <div className="space-x-0.5">
+          <div className="space-x-0.5 rtl:space-x-reverse">
             {labels.map((label) => (
               <Badge
                 value={label.name}

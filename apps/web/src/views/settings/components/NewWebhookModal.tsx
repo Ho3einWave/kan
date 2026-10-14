@@ -278,7 +278,7 @@ export function NewWebhookModal({
                   {webhookEvents.map((event) => (
                     <label
                       key={event}
-                      className="flex cursor-pointer items-center space-x-2"
+                      className="flex cursor-pointer items-center space-x-2 rtl:space-x-reverse"
                     >
                       <input
                         type="checkbox"
@@ -311,7 +311,7 @@ export function NewWebhookModal({
 
           {isEdit && (
             <div>
-              <label className="flex cursor-pointer items-center space-x-2">
+              <label className="flex cursor-pointer items-center space-x-2 rtl:space-x-reverse">
                 <input
                   type="checkbox"
                   {...register("active")}
