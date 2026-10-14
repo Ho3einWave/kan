@@ -4,7 +4,7 @@ import "~/utils/i18n";
 import type { NextPage, Viewport } from "next";
 import type { AppProps, AppType } from "next/app";
 import type { ReactElement, ReactNode } from "react";
-import { Plus_Jakarta_Sans, Vazirmatn } from "next/font/google";
+import { Noto_Sans_Arabic, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { env } from "next-runtime-env";
 import { ThemeProvider } from "next-themes";
@@ -24,8 +24,8 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
+const notoSansArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
   display: "swap",
 });
 
@@ -73,12 +73,12 @@ const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
       <style jsx global>{`
         html {
           font-family:
-            ${jakarta.style.fontFamily}, ${vazirmatn.style.fontFamily};
+            ${jakarta.style.fontFamily}, ${notoSansArabic.style.fontFamily};
         }
         html[dir="rtl"],
         html[dir="rtl"] main {
           font-family:
-            ${vazirmatn.style.fontFamily}, ${jakarta.style.fontFamily};
+            ${notoSansArabic.style.fontFamily}, ${jakarta.style.fontFamily};
         }
         body {
           position: relative;
