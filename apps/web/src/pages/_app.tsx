@@ -29,6 +29,15 @@ const notoSansArabic = Noto_Sans_Arabic({
   display: "swap",
 });
 
+// next/font appends a local Arial fallback to every family it returns. Arial
+// has Arabic-script glyphs on Windows/macOS, so it would catch Persian text
+// before the Noto face is ever requested. Use only the primary family names.
+const primaryFamily = (font: { style: { fontFamily: string } }) =>
+  font.style.fontFamily.split(",")[0]?.trim() ?? "";
+
+const jakartaFamily = primaryFamily(jakarta);
+const notoFamily = primaryFamily(notoSansArabic);
+
 export const metadata = {
   title: "Kan",
   description: "The open source Trello alternative",
@@ -72,13 +81,11 @@ const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
     <>
       <style jsx global>{`
         html {
-          font-family:
-            ${jakarta.style.fontFamily}, ${notoSansArabic.style.fontFamily};
+          font-family: ${jakartaFamily}, ${notoFamily}, sans-serif;
         }
         html[dir="rtl"],
         html[dir="rtl"] main {
-          font-family:
-            ${notoSansArabic.style.fontFamily}, ${jakarta.style.fontFamily};
+          font-family: ${notoFamily}, ${jakartaFamily}, sans-serif;
         }
         body {
           position: relative;
